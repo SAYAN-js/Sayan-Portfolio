@@ -58,11 +58,12 @@ export function Contact() {
       className="section-frame page-gutter"
     >
       <div className="section-inner-contact">
-        <div className="section-heading-wrap space-y-4">
+        <div className="section-heading-wrap">
           <h2 id="contact-heading" className="section-label">
             Contact
           </h2>
-          <p className="mx-auto max-w-2xl text-pretty text-lg font-medium leading-8 tracking-tight text-zinc-100 sm:text-xl">
+          <p className="section-title">Get in touch</p>
+          <p className="section-description">
             Have an internship, SDE opportunity, or project conversation? Send
             a concise note and I will follow up.
           </p>

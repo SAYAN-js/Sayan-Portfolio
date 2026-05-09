@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { navLinks, siteConfig } from "@/lib/site";
 
 const SECTION_ORDER: { id: string; navKey: (typeof navLinks)[number]["key"] }[] =
@@ -98,15 +99,15 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-2xl backdrop-saturate-150 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-in-out ${
         scrolled
-          ? "border-white/[0.10] bg-[#050508]/82 shadow-[0_18px_48px_-28px_rgba(0,0,0,0.85)]"
-          : "border-white/[0.06] bg-[#050508]/58"
+          ? "border-b border-white/[0.08] bg-[#050508]/80 shadow-[0_12px_40px_-12px_rgba(0,0,0,0.7)] backdrop-blur-2xl"
+          : "border-b border-white/[0.03] bg-transparent"
       }`}
     >
       <nav
-        className={`page-gutter relative mx-auto flex max-w-6xl items-center justify-between transition-[height] duration-300 ${
-          scrolled ? "h-14" : "h-16"
+        className={`page-gutter relative mx-auto flex max-w-6xl items-center justify-between transition-all duration-500 ease-in-out ${
+          scrolled ? "h-14" : "h-20"
         }`}
         aria-label="Main"
       >
@@ -114,16 +115,16 @@ export function Navbar() {
           href="#home"
           scroll={false}
           onClick={(e) => handleNavClick(e, "#home")}
-          className="group inline-flex items-center gap-2 text-[15px] font-semibold tracking-tight text-zinc-50 transition hover:text-white"
+          className="group inline-flex items-center gap-2.5 text-[15px] font-semibold tracking-tight text-zinc-100 transition-colors hover:text-white"
         >
           <span
-            className="h-2 w-2 rounded-full bg-violet-300 shadow-[0_0_14px_rgba(196,181,253,0.7)] transition group-hover:bg-cyan-200"
+            className="h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_12px_rgba(167,139,250,0.6)] transition-all duration-300 group-hover:scale-110 group-hover:bg-cyan-300 group-hover:shadow-[0_0_12px_rgba(103,232,249,0.6)]"
             aria-hidden
           />
-          {siteConfig.shortName}
+          <span className="opacity-90 group-hover:opacity-100">{siteConfig.shortName}</span>
         </Link>
 
-        <ul className="hidden items-center gap-8 lg:flex lg:gap-10">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map(({ href, key, label }) => {
             const isActive = active === key;
 
@@ -134,7 +135,7 @@ export function Navbar() {
                   scroll={false}
                   onClick={(e) => handleNavClick(e, href)}
                   aria-current={isActive ? "page" : undefined}
-                  className={`relative rounded-full px-1.5 py-2 font-mono text-[13px] font-medium tracking-wide transition ${
+                  className={`relative px-4 py-2 font-mono text-[12px] font-medium tracking-wide transition-all duration-300 ${
                     isActive
                       ? "text-violet-300"
                       : "text-zinc-400 hover:text-zinc-100"
@@ -142,8 +143,9 @@ export function Navbar() {
                 >
                   {label}
                   {isActive ? (
-                    <span
-                      className="absolute inset-x-2 -bottom-0.5 h-px rounded-full bg-violet-300/70"
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute inset-x-4 -bottom-1 h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent"
                       aria-hidden
                     />
                   ) : null}
@@ -153,10 +155,10 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`mailto:${siteConfig.email}?subject=Resume request from portfolio`}
-            className="btn-glass px-4 py-2.5 text-[13px]"
+            className="btn-glass px-5 py-2 text-[12px] h-9"
           >
             Resume
           </a>
@@ -164,7 +166,7 @@ export function Navbar() {
             href="#contact"
             scroll={false}
             onClick={(e) => handleNavClick(e, "#contact")}
-            className="btn-primary px-4 py-2.5 text-[13px]"
+            className="btn-primary px-5 py-2 text-[12px] h-9"
           >
             Contact
           </Link>

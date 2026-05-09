@@ -13,9 +13,10 @@ export function About() {
           <h2 id="about-heading" className="section-label">
             About
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-pretty text-lg font-medium leading-8 tracking-tight text-zinc-100 sm:text-xl">
-            Backend-minded engineer with a strong eye for clean, usable
-            interfaces.
+          <p className="section-title">Backend-minded engineering</p>
+          <p className="section-description">
+            Software engineer with a strong eye for clean, usable interfaces and
+            reliable logic.
           </p>
         </div>
         <div className="glass-panel-strong space-y-6 rounded-2xl p-6 text-pretty text-left text-base leading-8 text-zinc-400 sm:space-y-7 sm:p-8 sm:text-lg sm:leading-8">
