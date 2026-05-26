@@ -1,113 +1,209 @@
-# Sayan Chowdhury Portfolio
+# Sayan Chowdhury — Developer Portfolio
 
-Production-ready portfolio for Sayan Chowdhury, built with the Next.js App Router, React, TypeScript, Tailwind CSS v4, and Framer Motion.
+A modern, production-ready personal portfolio built with **Next.js App Router**, **React**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
 
-## Current Features
+Designed for performance, accessibility, responsiveness, and smooth user experience.
 
-- Responsive one-page portfolio with hero, about, journey, skills, proof highlights, projects, contact, and footer sections.
-- Accessible fixed navigation with smooth in-page links, mobile menu, keyboard escape handling, and skip-to-content link.
-- Contact workflow with mailto form submission, copy-email fallback state, phone link, resume request, call request, and project discussion actions.
-- Reduced-motion-aware section and button animations powered by Framer Motion.
-- SEO basics with title templates, meta description, canonical URL, favicon, generated Open Graph image, robots route, and sitemap route.
-- App Router safety screens for loading, not-found, and runtime error states.
-- Centralized site, navigation, project, and skill data in `src/lib/site.ts`.
-- No build-time Google Fonts network dependency; the UI uses fast system font stacks.
+---
 
-## Tech Stack
+## ✨ Features
 
-- Next.js 16 App Router
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Framer Motion
-- ESLint flat config with Next.js core web vitals rules
+* Fully responsive single-page portfolio
+* Smooth scrolling navigation with mobile support
+* Modern animated UI powered by Framer Motion
+* Accessible design with keyboard navigation support
+* Hero, About, Journey, Skills, Projects, Proof Highlights, Contact, and Footer sections
+* SEO-ready setup with:
 
-## Folder Structure
+  * Dynamic metadata
+  * Open Graph image generation
+  * Sitemap
+  * Robots configuration
+  * Canonical URLs
+* Custom loading, error, and not-found states
+* Centralized content management through `src/lib/site.ts`
+* System font stack for faster performance and zero external font dependency
+* Mailto-based contact workflow with:
 
-```text
-src/
-  app/
-    error.tsx
-    favicon.ico
-    globals.css
-    layout.tsx
-    loading.tsx
-    not-found.tsx
-    opengraph-image.tsx
-    page.tsx
-    robots.ts
-    sitemap.ts
-  components/
-    motion/
-      FadeInSection.tsx
-      MotionLink.tsx
-    About.tsx
-    Contact.tsx
-    Hero.tsx
-    Journey.tsx
-    Navbar.tsx
-    PageBackdrop.tsx
-    Projects.tsx
-    ProofHighlights.tsx
-    SiteFooter.tsx
-    Skills.tsx
-  lib/
-    site.ts
-```
+  * Email actions
+  * Copy email functionality
+  * Resume request
+  * Call request
+  * Project discussion actions
 
-## Environment Variables
+---
 
-Copy `.env.example` to `.env.local` for local development.
+## 🛠 Tech Stack
+
+* Next.js 16 (App Router)
+* React 19
+* TypeScript
+* Tailwind CSS v4
+* Framer Motion
+* ESLint with Next.js Core Web Vitals rules
+
+---
+
+## 📁 Project Structure
 
 ```bash
+src/
+│
+├── app/
+│   ├── error.tsx
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── layout.tsx
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   ├── opengraph-image.tsx
+│   ├── page.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+│
+├── components/
+│   ├── motion/
+│   │   ├── FadeInSection.tsx
+│   │   └── MotionLink.tsx
+│   │
+│   ├── About.tsx
+│   ├── Contact.tsx
+│   ├── Hero.tsx
+│   ├── Journey.tsx
+│   ├── Navbar.tsx
+│   ├── PageBackdrop.tsx
+│   ├── Projects.tsx
+│   ├── ProofHighlights.tsx
+│   ├── SiteFooter.tsx
+│   └── Skills.tsx
+│
+└── lib/
+    └── site.ts
+```
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env.local` file and add:
+
+```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` to the final production domain so canonical, robots, sitemap, and metadata URLs are correct.
+For production, replace it with your deployed domain:
 
-## Local Development
+```env
+NEXT_PUBLIC_SITE_URL=https://your-domain.com
+```
+
+This is used for:
+
+* SEO metadata
+* Canonical URLs
+* Sitemap generation
+* Robots configuration
+* Open Graph metadata
+
+---
+
+## 🚀 Local Development
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open:
 
-## Quality Checks
+```text
+http://localhost:3000
+```
+
+---
+
+## ✅ Quality Checks
+
+Run type checking:
 
 ```bash
 npm run typecheck
+```
+
+Run linting:
+
+```bash
 npm run lint
+```
+
+Create a production build:
+
+```bash
 npm run build
 ```
 
-## Deployment
+---
 
-Vercel is the best fit for this Next.js app.
+## 🌐 Deployment
 
-1. Push the project to GitHub.
-2. Import the repository in Vercel.
-3. Keep the framework preset as Next.js.
-4. Add `NEXT_PUBLIC_SITE_URL=https://your-production-domain.com`.
-5. Deploy.
+### Recommended: Vercel
 
-Netlify also supports this app through its Next.js runtime:
+1. Push the project to GitHub
+2. Import the repository into Vercel
+3. Keep the framework preset as **Next.js**
+4. Add the environment variable:
 
-1. Import the repository in Netlify.
-2. Use `npm run build` as the build command.
-3. Add `NEXT_PUBLIC_SITE_URL=https://your-production-domain.com`.
-4. Deploy.
+```env
+NEXT_PUBLIC_SITE_URL=https://your-production-domain.com
+```
 
-## Known Limitations
+5. Deploy
 
-- Project source links are not published in the UI because verified public repository URLs were not available in the workspace.
-- The contact form uses the visitor's email client via `mailto:` instead of a server-side email API.
-- GitHub Pages is not the recommended target because this project is a Next.js app. A static export could be added later if GitHub Pages becomes required.
+---
 
-## Future Improvements
+### Alternative: Netlify
 
-- Add verified GitHub and live-demo URLs for each project.
-- Replace the mailto workflow with a server action or API route backed by an email provider.
-- Add analytics after deployment and use real performance or engagement metrics.
-- Add end-to-end browser tests once a browser automation dependency is part of the project.
+1. Import the repository into Netlify
+2. Set build command:
+
+```bash
+npm run build
+```
+
+3. Add the required environment variable
+4. Deploy
+
+---
+
+## ⚠️ Current Limitations
+
+* Public GitHub repository links for projects are not yet added
+* Contact form currently uses `mailto:` instead of a backend email service
+* GitHub Pages is not recommended for this setup because the project uses Next.js App Router
+
+---
+
+## 📌 Planned Improvements
+
+* Add verified GitHub repositories and live project demos
+* Replace `mailto:` workflow with a proper backend email solution
+* Add analytics and performance monitoring
+* Implement end-to-end testing
+* Add CMS or markdown-powered project management
+* Improve animations and micro-interactions further
+
+---
+
+## 👨‍💻 Author
+
+**Sayan Chowdhury**
+Aspiring Software Engineer • AI/ML Enthusiast • Full Stack Developer
+
+Built with focus on clean UI, performance, and scalable architecture.
